@@ -21,7 +21,7 @@ public class UserDAO extends SimpleDAO {
 		Connection db = this.createConnection();
 		//PreparedStatement ps = null;
 		boolean result = false;
-		try (PreparedStatement ps = db.prepareStatement("INSERT INTO user(realName, userID, passwd) VALUES(?, ?, ?)")) {
+		try (PreparedStatement ps = db.prepareStatement("INSERT INTO usertbl(realName, userID, passwd) VALUES(?, ?, ?)")) {
 			//ps = db.prepareStatement("INSERT INTO user(realName, userID, passwd) VALUES(?, ?, ?)");
 			ps.setString(1, user.getRealName());
 			ps.setString(2, user.getUserId());
@@ -46,7 +46,7 @@ public class UserDAO extends SimpleDAO {
 //		PreparedStatement ps = null;
 //		String result = null;
 //		try {
-//			ps = db.prepareStatement("SELECT * FROM user WHERE userID=? AND passwd=?");
+//			ps = db.prepareStatement("SELECT * FROM usertbl WHERE userID=? AND passwd=?");
 //			ps.setString(1, userId);
 //			ps.setString(2, pass);
 //			ResultSet rst = ps.executeQuery();
