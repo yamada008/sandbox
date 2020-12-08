@@ -1,5 +1,7 @@
 package jp.ac.o_hara.site.blog;
 
+import java.sql.Date;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -14,8 +16,17 @@ public class BlogTestListener implements ServletContextListener {
 
     @Override
 	public void contextInitialized(ServletContextEvent sce) {
-		// TODO 自動生成されたメソッド・スタブ
-		
+    	if (System.getenv("DATABASE_URL") != null) {
+		} else {
+			if (dao.execSQL("CREATE TABLE IF NOT EXISTS blogtbl"
+					+ " (id IDENTITY, userID VARCHAR(64), date DATE, title VARCHAR(64), article VARCHAR(256))")) {
+				System.out.println("TestBlogDB is READY.");
+			} else {
+				System.out.println("TestBlogDB is NOT READY.");
+			}
+		}
+		dao.create(new BlogBean("hoge", Date.valueOf("2020-12-08"), "ほげ", "ほげほげ"));
+		dao.create(new BlogBean("piyo", Date.valueOf("2020-12-07"), "ぴよ", "ぴよぴよ"));
 	}
     
     @Override
