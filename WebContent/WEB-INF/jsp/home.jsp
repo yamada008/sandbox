@@ -23,7 +23,7 @@
 <div class="container">
 	<header class="well">
 		<h1>大原簿記法律専門学校柏校</h1>
-		<h2>システム開発コース</h2>
+		<h2>システム開発コース ヤマダ</h2>
 	</header>
 	<div class="row">
 		<div class="col-sm-3">
